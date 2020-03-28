@@ -18,6 +18,11 @@ type Specialist struct {
 	salary    int
 }
 
+//fn that acts as a method in the struct context
+func (s Specialist) greet() {
+	fmt.Println(s.name, "is a great doctor", "who specialises in ", s.specialty)
+}
+
 func main() {
 	// Structs are a heterogenous collection of elements
 	aDoctor := Doctor{number: 3, name: "Jon", companions: []string{"Liz", "Jo"}}
@@ -46,6 +51,10 @@ func main() {
 	splDoc := Specialist{}
 	splDoc.number = 1
 	splDoc.specialty = "neurology"
+	splDoc.name = "Dwayne"
 	fmt.Println(splDoc) // {{1  []} neurology 0}
+
+	// Call the method of a struct
+	splDoc.greet()
 
 }
